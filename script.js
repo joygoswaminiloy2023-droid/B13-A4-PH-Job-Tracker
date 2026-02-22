@@ -3,7 +3,7 @@
   
 let interview_data=[];
 let reject_data=[];
-let current_status='all_btn'
+let current_status='all'
   
 let Blank_inter_sec=document.getElementById('Blank_inter_sec');
 
@@ -13,7 +13,7 @@ let aj=total_display.innerText;
 
 let inter_display=document.getElementById('inter_display');
 
-const maincontainer=document.querySelector('main');
+
 
 
 filter_sec=document.getElementById('filterd_sec');
@@ -23,8 +23,7 @@ let avalilable_job= document.getElementById('avalilable_job');
     let cardsElement=document.getElementById('all_sec');
     let num_card=cardsElement.children.length;
   total_display.innerText=num_card;
-
-
+  avalilable_job.innerHTML=`<p class="font-semibold text-lg text-[#64748B]" id="avalilable_job">${num_card} Jobs</p>`;
 
 
 
@@ -52,34 +51,29 @@ document.getElementById(btn_id).classList.remove('bg-white', 'text-black');
 if(btn_id == 'interview_btn'){
 cardsElement.classList.add('hidden');
 filter_sec.classList.remove('hidden');
-inter_display.innerText = interview_data.length;
      fetch_data_interview(); 
-     blank_sec();
-    
+
+     
 
 }
 
 else if(btn_id=='all_btn'){
   cardsElement.classList.remove('hidden');
 filter_sec.classList.add('hidden');
- updateJobCounts();
 }
 
 else if(btn_id=='reject_btn'){
 cardsElement.classList.add('hidden');
 filter_sec.classList.remove('hidden');
-inter_display.innerText = interview_data.length;
-fetch_data_reject();  
- blank_sec();    
-
+fetch_data_reject();      
    }
-  
+   
 
 
   }
 
 
-
+const maincontainer=document.querySelector('main');
 
 
 maincontainer.addEventListener('click',function(event){
@@ -130,7 +124,7 @@ if(jobdata.parentNode === cardsElement){
   }
 
 reject_data=reject_data.filter(item=>item.jobname!=cardInfo.jobname);
-
+reject_display.innerText = reject_data.length;
 if(current_status=='reject_btn'){
   fetch_data_reject();
 }
@@ -141,6 +135,9 @@ inter_display.innerText = interview_data.length;
 
 
   }
+
+
+
 
 // reject_btn
     else if(event.target.classList.contains('reject_btn')){
