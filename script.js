@@ -76,6 +76,8 @@ fetch_data_reject();
 const maincontainer=document.querySelector('main');
 
 
+
+
 maincontainer.addEventListener('click',function(event){
 
 
@@ -197,6 +199,5 @@ reject_display.innerText = reject_data.length;
 
 
 })
-
 
 
