@@ -77,9 +77,15 @@ fetch_data_reject();
 
 
   }
-  
 
-  maincontainer.addEventListener('click',function(event){
+
+
+
+
+maincontainer.addEventListener('click',function(event){
+
+
+
 
   // interview_btn
   if(event.target.classList.contains('interview_btn')){
@@ -194,11 +200,6 @@ reject_display.innerText = reject_data.length;
 
 
 })
-
-
-
-
-
 
 
 
