@@ -60,6 +60,7 @@ filter_sec.classList.remove('hidden');
 else if(btn_id=='all_btn'){
   cardsElement.classList.remove('hidden');
 filter_sec.classList.add('hidden');
+
 }
 
 else if(btn_id=='reject_btn'){
@@ -316,29 +317,36 @@ maincontainer.addEventListener('click', function(event) {
 
 function blank_sec() {
 
-    if(current_status === 'interview_btn') {
-        if(interview_data.length === 0) {
+   
+    if (current_status === 'interview_btn') {
+
+        if (interview_data.length === 0) {
             Blank_inter_sec.classList.remove('hidden');
         } else {
             Blank_inter_sec.classList.add('hidden');
         }
     }
 
-    else if(current_status === 'reject_btn') {
-        if(reject_data.length === 0) {
-          
+   
+    else if (current_status === 'reject_btn') {
 
-  Blank_inter_sec.classList.remove('hidden');
+        if (reject_data.length === 0) {
+            Blank_inter_sec.classList.remove('hidden');
         } else {
             Blank_inter_sec.classList.add('hidden');
         }
     }
 
-    else if(current_status==='all_btn') {
-        Blank_inter_sec.classList.add('hidden');
+   
+    else if (current_status === 'all_btn') {
+
+        if (cardsElement.children.length === 0) {
+            Blank_inter_sec.classList.remove('hidden');
+        } else {
+            Blank_inter_sec.classList.add('hidden');
+        }
     }
 }
-
 
 function updateJobCounts() {
     // Count number of jobs currently visible in the section
@@ -346,9 +354,12 @@ function updateJobCounts() {
 
     if (current_status === 'all_btn') {
         visibleJobs = cardsElement.children.length;
-    } else {
+          avalilable_job.innerText = `${visibleJobs} Jobs`;
+    } 
+    else {
         visibleJobs = filter_sec.children.length;
+          avalilable_job.innerText = `${num_card} of ${visibleJobs} Jobs`;
     }
 
-    avalilable_job.innerText = `${num_card} of ${visibleJobs} Jobs`;
+  
 }
