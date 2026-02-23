@@ -98,7 +98,11 @@ const timming_2=jobdata.querySelector('.timming_2').innerText;
 const salary=jobdata.querySelector('.salary').innerText;
 const status=jobdata.querySelector('.status').innerText;
 const des=jobdata.querySelector('.des').innerText;
-jobdata.querySelector('.status').innerText="Interview"
+let statusDiv = jobdata.querySelector('.status');
+
+statusDiv.innerText = "Interview";
+statusDiv.classList.remove('bg-red-100','text-red-600');
+statusDiv.classList.add('bg-green-100','text-green-600');
 
 const cardInfo={
   jobname,
@@ -156,7 +160,11 @@ const timming_2=jobdata.querySelector('.timming_2').innerText;
 const salary=jobdata.querySelector('.salary').innerText;
 const status=jobdata.querySelector('.status').innerText;
 const des=jobdata.querySelector('.des').innerText;
-jobdata.querySelector('.status').innerText="Rejected"
+let statusDiv = jobdata.querySelector('.status');
+
+statusDiv.innerText = "Rejected";
+statusDiv.classList.remove('bg-green-100','text-green-600');
+statusDiv.classList.add('bg-red-100','text-red-600');
 
 const cardInfo={
   jobname,
@@ -286,7 +294,6 @@ for(let reject of reject_data){
 
 // del_function
 maincontainer.addEventListener('click', function(event) {
-    // Check if the clicked element is a trash icon or inside the trash button
     if (event.target.classList.contains('fa-trash-can') || event.target.closest('button')?.querySelector('.fa-trash-can')) {
 
  
@@ -319,6 +326,8 @@ function blank_sec() {
 
    
     if (current_status === 'interview_btn') {
+
+
 
         if (interview_data.length === 0) {
             Blank_inter_sec.classList.remove('hidden');
